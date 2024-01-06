@@ -1,20 +1,19 @@
-import './App.css'
-import { Global } from './styles/GlobalStyle'
+import { Route, Routes } from 'react-router-dom';
+import { Global } from './styles/GlobalStyle';
+import { Favorites, Home, Nannies, NotFound } from './pages';
 
 function App() {
-
   return (
     <>
-      <Global/>
-      <h1>Vite + React</h1>
-      <div>
-        <p>
-          Click on the Vite and React logos to learn more
-        </p>
-      </div>
-
+      <Global />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/nannies" element={<Nannies />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

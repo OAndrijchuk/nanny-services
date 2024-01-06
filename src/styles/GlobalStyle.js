@@ -2,13 +2,13 @@ import { createGlobalStyle } from 'styled-components';
 
 export const Global = createGlobalStyle`
 body {
-  /* font-family: 'Manrope-400',  sans-serif;
-  font-weight: 400;
+  font-family: 'HelveticaNeue-500',  sans-serif;
+  font-weight: 500;
   font-style: normal;
-  font-size: 14px;
-  color: ${({ theme }) => theme.colors.mainText};
-  background: ${({ theme }) => theme.background.main};
-  transition: ${({ theme }) => theme.transition}; */
+  font-size: 16px;
+  color: ${({ theme }) => theme.colors.greyText};
+  /* background: ${({ theme }) => theme.background.main}; */
+  transition: ${({ theme }) => theme.transition};
 }
 
 p,
@@ -32,7 +32,7 @@ ul,li {
 }
 
 a {
-     text-decoration: none;
+    text-decoration: none;
 }
 
 button {

@@ -1,7 +1,5 @@
 import storage from 'redux-persist/lib/storage';
 import { configureStore } from '@reduxjs/toolkit';
-
-
 import {
   persistStore,
   persistReducer,
@@ -13,6 +11,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { userReducer } from './auth/authSlice';
+import { globalReducer } from './Global/globalSlice';
 
 const persistConfigUser = {
   key: 'root',
@@ -21,10 +20,10 @@ const persistConfigUser = {
   whitelist: ['token', 'avatar', 'username'],
 };
 
-
 export const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfigUser, userReducer),
+    global: globalReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
