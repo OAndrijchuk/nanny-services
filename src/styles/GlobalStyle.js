@@ -36,6 +36,8 @@ a {
 }
 
 button {
+    background-color: transparent;
+    border: none;
     &:hover {
         cursor: pointer;
     }

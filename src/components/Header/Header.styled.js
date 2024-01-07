@@ -11,6 +11,8 @@ export const HeaderStyle = styled.header`
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgba(251, 251, 251, 0.4);
+  background-color: ${props =>
+    props.$BGColor ? ({ theme }) => theme.background.main : 'tranparent'};
 `;
 
 export const NavListStyle = styled.header`
@@ -30,7 +32,7 @@ export const NavLinkStyle = styled(NavLink)`
   transition: ${({ theme }) => theme.transition};
 
   &:hover {
-    color: ${({ theme }) => theme.colors.darkText};
+    color: ${({ theme }) => theme.colors.greyText};
   }
 
   @media screen and (min-width: 768px) {
@@ -47,6 +49,10 @@ export const LogoStyle = styled(NavLink)`
   font-weight: 500;
   line-height: 1.17; /* 125% */
   letter-spacing: -0.48px;
+  transition: ${({ theme }) => theme.transition};
+  &:hover {
+    color: ${({ theme }) => theme.colors.greyText};
+  }
 `;
 
 export const ButtonsContainer = styled.div`

@@ -4,6 +4,7 @@ export const theme = {
     greyText: 'rgba(17, 16, 28, 0.50)',
     darkText: '#11101C',
     lightText: '#FBFBFB',
+    error: '#F03F3B',
     // active: '#F3F3F3',
     // iconColor: '#F3F3F3',
     // link: 'rgba(243, 243, 243, 0.5)',
@@ -16,6 +17,9 @@ export const theme = {
   background: {
     main: '#F03F3B',
     light: 'rgba(240, 63, 59, 0.20)',
+    modalOverlay: 'rgba(11, 11, 11, 0.6)',
+    white: '#FBFBFB',
+    text: '#F3F3F3',
     //   gradientBlue: '#4070CD',
     //   dropdown: '#161F37',
     //   scrollbar: '#434d67',

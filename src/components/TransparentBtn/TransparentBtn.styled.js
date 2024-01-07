@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const TransparentButton = styled.button`
   display: flex;
   gap: 18px;
+  width: max-content;
   background-color: transparent;
   padding: 14px 39px;
   border-radius: 200px;

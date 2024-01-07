@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ModalOverlay } from './Modal.styled';
+import { CloseButton, ModalContainer, ModalOverlay } from './Modal.styled';
 import { useDispatch } from 'react-redux';
 import { closeModal } from '../../redux/Global/globalSlice';
+import { SpriteSVG } from '../../assets/images/SpriteSVG';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -28,7 +29,12 @@ const Modal = ({ children }) => {
         }
       }}
     >
-      {children}
+      <ModalContainer>
+        <CloseButton type="button" onClick={() => dispatch(closeModal())}>
+          <SpriteSVG name="close" />
+        </CloseButton>
+        {children}
+      </ModalContainer>
     </ModalOverlay>,
     modalRoot
   );

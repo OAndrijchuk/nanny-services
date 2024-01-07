@@ -9,6 +9,22 @@ export const ModalOverlay = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(34, 13, 91, 0.23);
-  backdrop-filter: blur(3.5px);
+  background-color: ${({ theme }) => theme.background.modalOverlay};
+`;
+export const ModalContainer = styled.div`
+  position: relative;
+  padding: 64px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.background.white};
+`;
+export const CloseButton = styled.button`
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

@@ -5,6 +5,7 @@ export const ColorButton = styled.button`
   padding: 14px 39px;
   border-radius: 200px;
   border: none;
+  width: max-content;
   color: ${({ theme }) => theme.colors.lightText};
   font-family: 'HelveticaNeue-500', sans-serif;
   font-size: 16px;

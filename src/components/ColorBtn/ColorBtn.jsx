@@ -1,8 +1,8 @@
 import { ColorButton } from './ColorBtn.styled';
 
-const ColorBtn = ({ children, onClick }) => {
+const ColorBtn = ({ type = 'button', children, onClick }) => {
   return (
-    <ColorButton type="button" onClick={onClick}>
+    <ColorButton type={type} onClick={onClick}>
       {children}
     </ColorButton>
   );
