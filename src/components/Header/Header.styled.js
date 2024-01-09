@@ -2,10 +2,12 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderStyle = styled.header`
-  position: absolute;
+  position: ${props => (props.$BGColor ? 'relative' : 'absolute')};
   top: 0;
   left: 0;
   padding: 30px 96px;
+  /* padding-left: calc((1vh + 1vw) * 4.2);
+  padding-right: calc((1vh + 1vw) * 4.2); */
   width: 100%;
   height: 88px;
   display: flex;
@@ -25,6 +27,7 @@ export const NavLinkStyle = styled(NavLink)`
   color: ${({ theme }) => theme.colors.lightText};
   font-family: 'HelveticaNeue-400', sans-serif;
   font-size: 16px;
+  /* font-size: 1rem; */
   font-style: normal;
   font-weight: 400;
   line-height: 1.25; /* 125% */
@@ -34,17 +37,12 @@ export const NavLinkStyle = styled(NavLink)`
   &:hover {
     color: ${({ theme }) => theme.colors.greyText};
   }
-
-  @media screen and (min-width: 768px) {
-  }
-
-  @media screen and (min-width: 1440px) {
-  }
 `;
 export const LogoStyle = styled(NavLink)`
   color: ${({ theme }) => theme.colors.lightText};
   font-family: 'HelveticaNeue-500', sans-serif;
-  font-size: 24px;
+  /* font-size: 24px; */
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 500;
   line-height: 1.17; /* 125% */

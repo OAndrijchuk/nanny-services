@@ -29,15 +29,19 @@ export const HomeTextContainer = styled.div`
 
 export const HomeTitle = styled.h1`
   font-family: 'HelveticaNeue-500';
-  font-size: 70px;
+  /* font-size: 70px; */
+  font-size: 4.375rem;
+  /* font-size: calc((1vh + 1vw) * 3.2); */
   font-style: normal;
   font-weight: 500;
-  line-height: 70px; /* 100% */
+  line-height: 1; /* 100% */
   letter-spacing: -2.1px;
 `;
 export const HomeTitleText = styled.p`
   font-family: 'HelveticaNeue-500';
-  font-size: 28px;
+  /* font-size: 28px; */
+  /* font-size: calc((1vh + 1vw) * 1.3); */
+  font-size: 1.75rem;
   font-style: normal;
   font-weight: 500;
   line-height: 1.07; /* 100% */
@@ -52,7 +56,7 @@ export const BGImageStyle = styled.div`
   background-size: cover;
   border-radius: 0 30px 30px 0;
   width: 50%;
-  min-height: 100%;
+  min-height: calc(100vh - 64px);
   background-color: lightgrey;
 
   @media (min-device-pixel-ratio: 2),

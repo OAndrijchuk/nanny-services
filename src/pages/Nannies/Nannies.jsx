@@ -1,12 +1,19 @@
-import { Header } from '../../components';
-import NannyCard from '../../components/NannyCard/NannyCard';
+import { Filters, Header, NanniesList } from '../../components';
+import nannies from '../../assets/babySitters.json';
+import { NanniesContainer } from './Nannies.styled';
+import { SectionStyle } from '../../styles/GlobalComponentsStyled/Section';
 
 const Nannies = () => {
   return (
-    <div>
+    <>
       <Header BGColor />
-      <NannyCard />
-    </div>
+      <SectionStyle>
+        <NanniesContainer>
+          <Filters />
+          <NanniesList nannies={nannies} />
+        </NanniesContainer>
+      </SectionStyle>
+    </>
   );
 };
 

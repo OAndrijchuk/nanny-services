@@ -1,5 +1,11 @@
+import { Header } from '../../components';
+
 const Favorites = () => {
-  return <div>Favorites</div>;
+  return (
+    <>
+      <Header BGColor />
+    </>
+  );
 };
 
 export default Favorites;

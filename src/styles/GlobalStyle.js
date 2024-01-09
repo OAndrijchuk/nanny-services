@@ -42,5 +42,11 @@ button {
         cursor: pointer;
     }
 }
+  @media screen and (max-width: 980px) {
+    html{
+        font-size: 14px;
+    }
+   
+  }
   
 `;

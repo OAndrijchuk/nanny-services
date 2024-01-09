@@ -5,3 +5,5 @@ export { default as Modal } from './Modal/Modal.jsx';
 export { default as Input } from './Input/Input.jsx';
 export { default as RegistrationForm } from './RegistrationForm/RegistrationForm.jsx';
 export { default as LogInForm } from './LogInForm/LogInForm.jsx';
+export { default as NanniesList } from './NanniesList/NanniesList.jsx';
+export { default as Filters } from './Filters/Filters.jsx';

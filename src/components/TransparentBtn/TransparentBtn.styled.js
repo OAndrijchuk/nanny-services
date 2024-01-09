@@ -11,7 +11,8 @@ export const TransparentButton = styled.button`
   color: ${({ theme }) => theme.colors.lightText};
   fill: currentColor;
   font-family: 'HelveticaNeue-500', sans-serif;
-  font-size: 16px;
+  /* font-size: 16px; */
+  font-size: 1rem;
   font-style: normal;
   font-weight: 500;
   line-height: 1.25; /* 125% */

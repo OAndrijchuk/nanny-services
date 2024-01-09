@@ -8,7 +8,8 @@ export const ColorButton = styled.button`
   width: max-content;
   color: ${({ theme }) => theme.colors.lightText};
   font-family: 'HelveticaNeue-500', sans-serif;
-  font-size: 16px;
+  /* font-size: 16px; */
+  font-size: 1rem;
   font-style: normal;
   font-weight: 500;
   line-height: 1.25; /* 125% */
