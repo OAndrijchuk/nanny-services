@@ -4,7 +4,6 @@ export const RegisterContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 438px;
-
   background-color: ${({ theme }) => theme.colors.lightText};
 `;
 export const RegisterTitle = styled.h2`

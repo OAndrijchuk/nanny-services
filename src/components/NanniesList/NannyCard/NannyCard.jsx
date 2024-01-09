@@ -14,9 +14,20 @@ import {
   Price,
   ReadMoreButton,
 } from './NannyCard.styled';
+import Modal from '../../Modal/Modal';
+import ContactForm from '../../ContactForm/ContactForm';
+import { useDispatch, useSelector } from 'react-redux';
+import { getIsContactModalOpen } from '../../../redux/Global/selectors';
+import { openContactModal } from '../../../redux/Global/globalSlice';
 
 const NannyCard = ({ nanny }) => {
   const [isReadMore, setIsReadMore] = useState(true);
+  const isModalOpen = useSelector(getIsContactModalOpen);
+  const dispatch = useDispatch();
+
+  const openModal = () => {
+    dispatch(openContactModal());
+  };
 
   const date = new Date(nanny.birthday);
   const now = new Date();
@@ -92,7 +103,12 @@ const NannyCard = ({ nanny }) => {
         {!isReadMore && (
           <>
             <ReviewsList reviews={nanny.reviews} />
-            <ColorBtn>Make an appointment</ColorBtn>
+            <ColorBtn onClick={openModal}>Make an appointment</ColorBtn>
+            {isModalOpen && (
+              <Modal>
+                <ContactForm nanny={nanny} />
+              </Modal>
+            )}
           </>
         )}
       </InfoContainer>
