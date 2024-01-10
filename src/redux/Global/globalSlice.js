@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import nannies from '../../assets/babySitters.json';
 
 const initialState = {
+  nannies,
+  filterNannies: [],
   isLoading: false,
   isModalOpen: false,
   isContactModalOpen: false,
@@ -13,6 +16,12 @@ export const authSlice = createSlice({
       state.isModalOpen = false;
       state.isContactModalOpen = false;
       document.body.style.overflow = '';
+    },
+    setNannies: (state, { payload }) => {
+      state.nannies = payload;
+    },
+    setFilterNannies: (state, { payload }) => {
+      state.filterNannies = payload;
     },
     openModal: state => {
       state.isModalOpen = true;
@@ -27,4 +36,10 @@ export const authSlice = createSlice({
 });
 
 export const globalReducer = authSlice.reducer;
-export const { closeModal, openModal, openContactModal } = authSlice.actions;
+export const {
+  closeModal,
+  openModal,
+  openContactModal,
+  setNannies,
+  setFilterNannies,
+} = authSlice.actions;

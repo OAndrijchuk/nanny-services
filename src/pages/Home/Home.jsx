@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { SpriteSVG } from '../../assets/images/SpriteSVG';
 import { Header, TransparentBtn } from '../../components';
 import {
@@ -10,6 +11,7 @@ import {
 } from './Home.styled';
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <HomeSection>
       <HomeContainer>
@@ -19,7 +21,7 @@ const Home = () => {
           <HomeTitleText>
             Find Babysitters Online for All Occasions
           </HomeTitleText>
-          <TransparentBtn type="button">
+          <TransparentBtn type="button" onClick={() => navigate('nannies')}>
             Get started <SpriteSVG name="arrow" />
           </TransparentBtn>
         </HomeTextContainer>

@@ -10,9 +10,14 @@ import {
 } from './LogInForm.styled';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { signIn } from '../../redux/API/auth';
+import { closeModal } from '../../redux/Global/globalSlice';
+import { useDispatch } from 'react-redux';
 
 const LogInForm = () => {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
+
   const isPasswordShow = () => {
     setShowPassword(prev => !prev);
   };
@@ -29,8 +34,10 @@ const LogInForm = () => {
         .min(6, 'Password should be of minimum 8 characters length')
         .required('Password is required'),
     }),
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: async values => {
+      await signIn(values);
+
+      dispatch(closeModal());
     },
   });
 

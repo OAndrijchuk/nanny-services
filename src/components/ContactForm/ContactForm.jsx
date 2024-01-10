@@ -31,6 +31,7 @@ const ContactForm = ({ nanny }) => {
         2,
         'Name should be of minimum 2 characters length'
       ),
+      childAge: Yup.number(`Child's Age should be a number`),
       email: Yup.string().email('Email is not correct'),
     }),
     onSubmit: values => {
@@ -68,7 +69,7 @@ const ContactForm = ({ nanny }) => {
             formik={formik}
           />
           <Input
-            type="tel"
+            type="text"
             id="childAge"
             placeholder="Child's age"
             formik={formik}
