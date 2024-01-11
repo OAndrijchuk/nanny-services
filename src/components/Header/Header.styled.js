@@ -59,6 +59,12 @@ export const ButtonsContainer = styled.div`
   gap: 8px;
 `;
 
+export const AuthButtonsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 24px;
+`;
+
 export const Nav = styled.nav`
   margin-left: auto;
   margin-right: 96px;

@@ -10,9 +10,8 @@ import {
 } from './RegistrationForm.styled';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { signUp } from '../../redux/API/auth';
-import { closeModal } from '../../redux/Global/globalSlice';
 import { useDispatch } from 'react-redux';
+import { registration } from '../../redux/auth/operations';
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
@@ -38,8 +37,7 @@ const RegistrationForm = () => {
         .required('Password is required'),
     }),
     onSubmit: async values => {
-      await signUp({ ...values, displayName: values.name });
-      dispatch(closeModal());
+      dispatch(registration({ ...values, displayName: values.name }));
     },
   });
 

@@ -31,7 +31,7 @@ const NanniesList = ({ nannies = [] }) => {
                 <NannyCard key={item.name} nanny={item} />
               ))
             ) : (
-              <h2>Нічого не знайдено</h2>
+              <h2>Nothing was found for your request.</h2>
             )}
           </NannyListStyle>
 

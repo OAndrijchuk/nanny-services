@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import nannies from '../../assets/babySitters.json';
+import { getAllNannies } from './operations';
 
 const initialState = {
-  nannies,
+  nannies: [],
   filterNannies: [],
   isLoading: false,
   isModalOpen: false,
@@ -31,7 +31,17 @@ export const authSlice = createSlice({
     },
   },
   extraReducers: builder => {
-    builder;
+    builder
+      .addCase(getAllNannies.fulfilled, (state, { payload }) => {
+        state.nannies = payload;
+        state.isLoading = false;
+      })
+      .addCase(getAllNannies.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(getAllNannies.rejected, state => {
+        state.isLoading = false;
+      });
   },
 });
 

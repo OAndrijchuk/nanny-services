@@ -5,8 +5,9 @@ import {
   SelectContainerStyle,
 } from './Filters.styled';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setFilterNannies } from '../../redux/Global/globalSlice';
+import { getNannies } from '../../redux/Global/selectors';
 
 const options = [
   { label: 'A to Z', value: 'A to Z' },
@@ -18,9 +19,9 @@ const options = [
   { label: 'Show all', value: 'Show all' },
 ];
 
-const Filters = ({ arr }) => {
+const Filters = () => {
   const dispatch = useDispatch();
-
+  const arr = useSelector(getNannies);
   useEffect(() => {
     filtered(options[0]);
   }, [options]);

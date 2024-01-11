@@ -10,9 +10,8 @@ import {
 } from './LogInForm.styled';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { signIn } from '../../redux/API/auth';
-import { closeModal } from '../../redux/Global/globalSlice';
 import { useDispatch } from 'react-redux';
+import { logIn } from '../../redux/auth/operations';
 
 const LogInForm = () => {
   const dispatch = useDispatch();
@@ -35,9 +34,7 @@ const LogInForm = () => {
         .required('Password is required'),
     }),
     onSubmit: async values => {
-      await signIn(values);
-
-      dispatch(closeModal());
+      dispatch(logIn(values));
     },
   });
 

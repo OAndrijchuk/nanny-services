@@ -1,15 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { fetchPage } from './operations';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { getOut, logIn, registration } from './operations';
 
 const initialState = {
-  user: {
-    email: '',
-    username: '',
-  },
+  user: {},
   isAuth: false,
   isLoading: false,
   isRefresh: false,
-  isSubscribed: false,
   error: '',
   token: '',
 };
@@ -19,21 +15,31 @@ export const authSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(fetchPage.fulfilled, (state, { payload }) => {
-        state.paginationCards = [
-          ...state.paginationCards,
-          ...payload.pageCards,
-        ];
-        state.totalCards = payload.totalCards;
-        state.totalPages = payload.totalPages;
-        state.isPageLoading = false;
+      .addCase(getOut.fulfilled, state => {
+        state.user = {};
+        state.isAuth = false;
+        state.isLoading = false;
       })
-      .addCase(fetchPage.pending, state => {
-        state.isPageLoading = true;
-      })
-      .addCase(fetchPage.rejected, state => {
-        state.isPageLoading = false;
-      });
+      .addMatcher(
+        isAnyOf(logIn.fulfilled, registration.fulfilled),
+        (state, { payload }) => {
+          state.user = payload;
+          state.isAuth = true;
+          state.isLoading = false;
+        }
+      )
+      .addMatcher(
+        isAnyOf(logIn.pending, registration.pending, getOut.pending),
+        state => {
+          state.isLoading = true;
+        }
+      )
+      .addMatcher(
+        isAnyOf(logIn.rejected, registration.rejected, getOut.rejected),
+        state => {
+          state.isLoading = false;
+        }
+      );
   },
 });
 

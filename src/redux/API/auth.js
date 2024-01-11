@@ -9,8 +9,7 @@ export const signUp = async ({ email, password, displayName }) => {
   return createUserWithEmailAndPassword(auth, email, password, displayName)
     .then(userCredential => {
       const user = userCredential.user;
-      console.log(user);
-      return user;
+      return JSON.parse(JSON.stringify(user));
     })
     .catch(error => {
       const errorCode = error.code;
@@ -23,8 +22,7 @@ export const signIn = async ({ email, password }) => {
   return signInWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
       const user = userCredential.user;
-      console.log(user);
-      return user;
+      return JSON.parse(JSON.stringify(user));
     })
     .catch(error => {
       const errorCode = error.code;

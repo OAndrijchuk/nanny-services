@@ -1,11 +1,17 @@
 import { Filters, Header, NanniesList } from '../../components';
 import { NanniesContainer } from './Nannies.styled';
 import { SectionStyle } from '../../styles/GlobalComponentsStyled/Section';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getFilterNannies, getNannies } from '../../redux/Global/selectors';
+import { useEffect } from 'react';
+import { getAllNannies } from '../../redux/Global/operations';
 
 const Nannies = () => {
-  const nan = useSelector(getNannies);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllNannies());
+  }, [dispatch]);
+
   const filterNannies = useSelector(getFilterNannies);
 
   return (
@@ -13,7 +19,7 @@ const Nannies = () => {
       <Header BGColor />
       <SectionStyle>
         <NanniesContainer>
-          <Filters arr={nan} />
+          <Filters />
           <NanniesList nannies={filterNannies} />
         </NanniesContainer>
       </SectionStyle>
