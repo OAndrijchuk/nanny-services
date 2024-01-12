@@ -3,6 +3,7 @@ import { getOut, logIn, registration } from './operations';
 
 const initialState = {
   user: {},
+  favoritesNannies: [],
   isAuth: false,
   isLoading: false,
   isRefresh: false,
@@ -12,18 +13,24 @@ const initialState = {
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  reducers: {
+    setFavoritesNannies: (state, { payload }) => {
+      state.favoritesNannies = payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(getOut.fulfilled, state => {
         state.user = {};
+        state.favoritesNannies = [];
         state.isAuth = false;
         state.isLoading = false;
       })
       .addMatcher(
         isAnyOf(logIn.fulfilled, registration.fulfilled),
         (state, { payload }) => {
-          state.user = payload;
+          state.user = payload.user;
+          state.favoritesNannies = payload.favorites;
           state.isAuth = true;
           state.isLoading = false;
         }
@@ -44,3 +51,4 @@ export const authSlice = createSlice({
 });
 
 export const userReducer = authSlice.reducer;
+export const { setFavoritesNannies } = authSlice.actions;

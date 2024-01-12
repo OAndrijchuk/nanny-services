@@ -17,7 +17,7 @@ const persistConfigUser = {
   key: 'root',
   version: 1,
   storage,
-  whitelist: ['user', 'isAuth'],
+  whitelist: ['user', 'isAuth', 'favoritesNannies'],
 };
 
 export const store = configureStore({

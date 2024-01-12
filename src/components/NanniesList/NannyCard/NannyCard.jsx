@@ -19,14 +19,27 @@ import ContactForm from '../../ContactForm/ContactForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { getIsContactModalOpen } from '../../../redux/Global/selectors';
 import { openContactModal } from '../../../redux/Global/globalSlice';
+import {
+  addNannyToFavorites,
+  removeNannyFromFavorites,
+} from '../../../redux/Global/operations';
 
 const NannyCard = ({ nanny }) => {
   const [isReadMore, setIsReadMore] = useState(true);
   const isModalOpen = useSelector(getIsContactModalOpen);
+  const userId = useSelector(state => state.auth.user.uid);
+  const favoritesNannies = useSelector(state => state.auth.favoritesNannies);
   const dispatch = useDispatch();
 
   const openModal = () => {
     dispatch(openContactModal());
+  };
+
+  const addToFavorites = () => {
+    dispatch(addNannyToFavorites({ userId, nanny }));
+  };
+  const removeFromFavorites = () => {
+    dispatch(removeNannyFromFavorites({ userId, nanny }));
   };
 
   const date = new Date(nanny.birthday);
@@ -40,6 +53,10 @@ const NannyCard = ({ nanny }) => {
       return one.join('');
     })
     .join(', ');
+  let isInFavorite = false;
+  if (favoritesNannies.length) {
+    isInFavorite = favoritesNannies.some(el => el.name === nanny.name);
+  }
 
   return (
     <ItemContainer>
@@ -64,7 +81,11 @@ const NannyCard = ({ nanny }) => {
               </span>
             </li>
           </ul>
-          <FavoriteButton type="button">
+          <FavoriteButton
+            $bgColor={isInFavorite ? 'red' : null}
+            type="button"
+            onClick={isInFavorite ? removeFromFavorites : addToFavorites}
+          >
             <SpriteSVG name="heart" />
           </FavoriteButton>
         </InfoHead>

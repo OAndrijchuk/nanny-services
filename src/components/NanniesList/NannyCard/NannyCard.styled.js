@@ -69,6 +69,14 @@ export const FavoriteButton = styled.button`
   justify-content: center;
   align-items: center;
 
+  & svg {
+    fill: ${({ $bgColor }) => ($bgColor ? $bgColor : 'white')};
+    transition: ${({ theme }) => theme.transition};
+    &:hover {
+      fill: red;
+    }
+  }
+
   @media screen and (max-width: 560px) {
     position: absolute;
     top: 24px;

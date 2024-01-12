@@ -3,13 +3,22 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
-import { auth } from '../../firebase.js';
+import { auth, db } from '../../firebase.js';
+import { collection, doc, setDoc } from 'firebase/firestore';
+import { getFavorite } from './nannies.js';
 
 export const signUp = async ({ email, password, displayName }) => {
   return createUserWithEmailAndPassword(auth, email, password, displayName)
-    .then(userCredential => {
-      const user = userCredential.user;
-      return JSON.parse(JSON.stringify(user));
+    .then(async userCredential => {
+      const data = userCredential.user;
+      const user = JSON.parse(JSON.stringify(data));
+      const userRef = collection(db, 'users');
+      await setDoc(doc(userRef, user.uid), {
+        favorites: [],
+      });
+
+      const favorites = await getFavorite(user.uid);
+      return { favorites, user };
     })
     .catch(error => {
       const errorCode = error.code;
@@ -20,9 +29,11 @@ export const signUp = async ({ email, password, displayName }) => {
 
 export const signIn = async ({ email, password }) => {
   return signInWithEmailAndPassword(auth, email, password)
-    .then(userCredential => {
-      const user = userCredential.user;
-      return JSON.parse(JSON.stringify(user));
+    .then(async userCredential => {
+      const data = userCredential.user;
+      const user = JSON.parse(JSON.stringify(data));
+      const favorites = await getFavorite(user.uid);
+      return { favorites, user };
     })
     .catch(error => {
       const errorCode = error.code;

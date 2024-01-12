@@ -24,7 +24,7 @@ const Filters = () => {
   const arr = useSelector(getNannies);
   useEffect(() => {
     filtered(options[0]);
-  }, [options]);
+  }, [arr]);
 
   const filtered = ({ value }) => {
     const a = JSON.parse(JSON.stringify(arr));

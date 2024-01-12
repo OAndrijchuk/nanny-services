@@ -8,7 +8,7 @@ const initialState = {
   isModalOpen: false,
   isContactModalOpen: false,
 };
-export const authSlice = createSlice({
+export const globalSlice = createSlice({
   name: 'global',
   initialState,
   reducers: {
@@ -45,11 +45,11 @@ export const authSlice = createSlice({
   },
 });
 
-export const globalReducer = authSlice.reducer;
+export const globalReducer = globalSlice.reducer;
 export const {
   closeModal,
   openModal,
   openContactModal,
   setNannies,
   setFilterNannies,
-} = authSlice.actions;
+} = globalSlice.actions;
