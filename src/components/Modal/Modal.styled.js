@@ -31,4 +31,11 @@ export const CloseButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: ${({ theme }) => theme.transition};
+  & svg {
+    stroke: currentColor;
+  }
+  &:hover {
+    color: ${({ theme }) => theme.background.main};
+  }
 `;

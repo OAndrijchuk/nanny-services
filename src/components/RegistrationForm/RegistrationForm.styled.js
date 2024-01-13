@@ -5,6 +5,9 @@ export const RegisterContainer = styled.div`
   flex-direction: column;
   width: 438px;
   background-color: ${({ theme }) => theme.colors.lightText};
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
 `;
 export const RegisterTitle = styled.h2`
   margin-bottom: 20px;

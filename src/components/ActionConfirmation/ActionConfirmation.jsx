@@ -6,16 +6,21 @@ import {
   YesButton,
 } from './ActionConfirmation.styled';
 import { closeModal } from '../../redux/Global/globalSlice';
-import { getOut } from '../../redux/auth/operations';
 
-const ActionConfirmation = () => {
+const ActionConfirmation = ({ text, actionFunc }) => {
   const dispatch = useDispatch();
   return (
     <div>
-      <ConfirmationTitle>Are you sure you want to exit?</ConfirmationTitle>
+      <ConfirmationTitle>{text}</ConfirmationTitle>
       <ConfirmationBtnWrapper>
-        <YesButton onClick={() => dispatch(getOut())}>Yes</YesButton>
-        <ColorBtn onClick={() => dispatch(closeModal())}>No</ColorBtn>
+        {actionFunc ? (
+          <>
+            <YesButton onClick={() => dispatch(actionFunc())}>Ok</YesButton>
+            <ColorBtn onClick={() => dispatch(closeModal())}>No</ColorBtn>
+          </>
+        ) : (
+          <ColorBtn onClick={() => dispatch(closeModal())}>Ok</ColorBtn>
+        )}
       </ConfirmationBtnWrapper>
     </div>
   );

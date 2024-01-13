@@ -1,5 +1,3 @@
-// import { BiHomeAlt2 } from 'react-icons/bi';
-
 import {
   StyledLink,
   StyledText,
@@ -12,9 +10,9 @@ const NotFound = () => {
   return (
     <StyledThumb>
       <StyledTextErr>404</StyledTextErr>
-      <StyledTitle>Something{`&#39;`}wrong here.</StyledTitle>
+      <StyledTitle>Something{`'`}wrong here.</StyledTitle>
       <StyledText>
-        This is a 404 error, which means you{`&#39;`}ve clicked on a bad link or
+        This is a 404 error, which means you{`'`}ve clicked on a bad link or
         entered an invalid URL.
       </StyledText>
       <StyledText>

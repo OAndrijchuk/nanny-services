@@ -14,8 +14,14 @@ import {
   TextareaStyle,
 } from './ContactForm.styled';
 import ColorBtn from '../ColorBtn/ColorBtn';
+import { useDispatch, useSelector } from 'react-redux';
+import { closeModal } from '../../redux/Global/globalSlice';
+import { addAppointment } from '../../redux/API/nannies';
 
 const ContactForm = ({ nanny }) => {
+  const dispatch = useDispatch();
+  const userId = useSelector(state => state.auth.user.uid);
+
   const formik = useFormik({
     initialValues: {
       address: '',
@@ -32,10 +38,12 @@ const ContactForm = ({ nanny }) => {
         'Name should be of minimum 2 characters length'
       ),
       childAge: Yup.number(`Child's Age should be a number`),
+      phoneNumber: Yup.number(`This field should be a number`),
       email: Yup.string().email('Email is not correct'),
     }),
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: async values => {
+      await addAppointment({ userId, values, nanny });
+      dispatch(closeModal());
     },
   });
 

@@ -6,8 +6,6 @@ export const HeaderStyle = styled.header`
   top: 0;
   left: 0;
   padding: 30px 96px;
-  /* padding-left: calc((1vh + 1vw) * 4.2);
-  padding-right: calc((1vh + 1vw) * 4.2); */
   width: 100%;
   height: 88px;
   display: flex;
@@ -15,12 +13,22 @@ export const HeaderStyle = styled.header`
   border-bottom: 1px solid rgba(251, 251, 251, 0.4);
   background-color: ${props =>
     props.$BGColor ? ({ theme }) => theme.background.main : 'tranparent'};
+
+  @media screen and (max-width: 1124px) {
+    padding: 30px 48px;
+  }
+  @media screen and (max-width: 480px) {
+    padding: 30px 24px;
+  }
 `;
 
-export const NavListStyle = styled.header`
+export const NavListStyle = styled.ul`
   display: flex;
   align-items: center;
   gap: 40px;
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 export const NavLinkStyle = styled(NavLink)`
@@ -57,15 +65,41 @@ export const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 export const AuthButtonsContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 export const Nav = styled.nav`
   margin-left: auto;
   margin-right: 96px;
+
+  @media screen and (max-width: 1124px) {
+    margin-right: 24px;
+  }
+`;
+export const BurgerMenuButton = styled.button`
+  width: 50px;
+  height: 50px;
+  display: none;
+  color: ${({ theme }) => theme.colors.lightText};
+  transition: ${({ theme }) => theme.transition};
+  & svg {
+    fill: currentColor;
+  }
+  &:hover {
+    color: ${({ theme }) => theme.colors.greyText};
+  }
+  @media screen and (max-width: 1024px) {
+    display: block;
+  }
 `;

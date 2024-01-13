@@ -5,6 +5,7 @@ import {
   doc,
   getDoc,
   getDocs,
+  setDoc,
   updateDoc,
 } from 'firebase/firestore';
 import { db } from '../../firebase';
@@ -37,6 +38,14 @@ export const removeFromFavorite = async ({ userId, nanny }) => {
   const Ref = doc(db, 'users', userId);
   const arr = await updateDoc(Ref, {
     favorites: arrayRemove(nanny),
+  });
+  return arr;
+};
+
+export const addAppointment = async ({ userId, nanny, values }) => {
+  const arr = await setDoc(doc(db, 'appointment', nanny.name), {
+    ...values,
+    userId,
   });
   return arr;
 };

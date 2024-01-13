@@ -23,15 +23,24 @@ import {
   addNannyToFavorites,
   removeNannyFromFavorites,
 } from '../../../redux/Global/operations';
+import ActionConfirmation from '../../ActionConfirmation/ActionConfirmation';
 
 const NannyCard = ({ nanny }) => {
   const [isReadMore, setIsReadMore] = useState(true);
+  const [itemModalType, setItemModalType] = useState('');
   const isModalOpen = useSelector(getIsContactModalOpen);
   const userId = useSelector(state => state.auth.user.uid);
+  const isAuth = useSelector(state => state.auth.isAuth);
   const favoritesNannies = useSelector(state => state.auth.favoritesNannies);
   const dispatch = useDispatch();
 
   const openModal = () => {
+    setItemModalType('contact');
+    dispatch(openContactModal());
+  };
+
+  const showAction = () => {
+    setItemModalType('notAuth');
     dispatch(openContactModal());
   };
 
@@ -82,9 +91,15 @@ const NannyCard = ({ nanny }) => {
             </li>
           </ul>
           <FavoriteButton
-            $bgColor={isInFavorite ? 'red' : null}
+            $bgColor={isInFavorite ? true : null}
             type="button"
-            onClick={isInFavorite ? removeFromFavorites : addToFavorites}
+            onClick={
+              isAuth
+                ? isInFavorite
+                  ? removeFromFavorites
+                  : addToFavorites
+                : showAction
+            }
           >
             <SpriteSVG name="heart" />
           </FavoriteButton>
@@ -113,26 +128,33 @@ const NannyCard = ({ nanny }) => {
           </li>
         </NannyParamsList>
         <p>{nanny.about}</p>
-        {isReadMore && (
+        {isReadMore ? (
           <ReadMoreButton
             type="button"
             onClick={() => setIsReadMore(prev => !prev)}
           >
             Read more
           </ReadMoreButton>
-        )}
-        {!isReadMore && (
+        ) : (
           <>
             <ReviewsList reviews={nanny.reviews} />
-            <ColorBtn onClick={openModal}>Make an appointment</ColorBtn>
-            {isModalOpen && (
-              <Modal>
-                <ContactForm nanny={nanny} />
-              </Modal>
-            )}
+
+            <ColorBtn onClick={isAuth ? openModal : showAction}>
+              Make an appointment
+            </ColorBtn>
           </>
         )}
       </InfoContainer>
+      {isModalOpen && itemModalType && (
+        <Modal>
+          {isModalOpen && itemModalType === 'contact' && (
+            <ContactForm nanny={nanny} />
+          )}
+          {isModalOpen && itemModalType === 'notAuth' && (
+            <ActionConfirmation text="Log in to your account or register first!" />
+          )}
+        </Modal>
+      )}
     </ItemContainer>
   );
 };

@@ -70,10 +70,14 @@ export const FavoriteButton = styled.button`
   align-items: center;
 
   & svg {
-    fill: ${({ $bgColor }) => ($bgColor ? $bgColor : 'white')};
+    fill: ${({ $bgColor, theme }) =>
+      $bgColor ? theme.background.main : 'white'};
+    stroke: ${({ $bgColor, theme }) =>
+      $bgColor ? theme.background.main : 'black'};
     transition: ${({ theme }) => theme.transition};
     &:hover {
-      fill: red;
+      fill: ${({ theme }) => theme.background.main};
+      stroke: ${({ theme }) => theme.background.main};
     }
   }
 

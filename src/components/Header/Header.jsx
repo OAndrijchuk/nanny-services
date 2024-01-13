@@ -1,5 +1,6 @@
 import {
   AuthButtonsContainer,
+  BurgerMenuButton,
   ButtonsContainer,
   HeaderStyle,
   LogoStyle,
@@ -12,22 +13,27 @@ import ColorBtn from '../ColorBtn/ColorBtn';
 import Modal from '../Modal/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { getIsModalOpen } from '../../redux/Global/selectors';
-import { openModal } from '../../redux/Global/globalSlice';
+import { openMobileMenu, openModal } from '../../redux/Global/globalSlice';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import LogInForm from '../LogInForm/LogInForm';
 import { useState } from 'react';
 import ActionConfirmation from '../ActionConfirmation/ActionConfirmation';
 import UserInfo from '../UserInfo/UserInfo';
-// import { db } from '../../firebase';
-// import { collection, doc, setDoc } from 'firebase/firestore';
-// import { v4 as uuid } from 'uuid';
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
+import { SpriteSVG } from '../../assets/images/SpriteSVG';
+import { getOut } from '../../redux/auth/operations';
 
 const Header = ({ BGColor }) => {
-  // const nan = useSelector(getNannies);
   const isModalOpen = useSelector(getIsModalOpen);
   const isAuth = useSelector(state => state.auth.isAuth);
+  const isMobileMenuOpen = useSelector(state => state.global.isMobileMenuOpen);
   const dispatch = useDispatch();
   const [modalType, setModalType] = useState('');
+
+  const toggleMobileMenu = () => {
+    dispatch(openMobileMenu(!isMobileMenuOpen));
+  };
+
   const openLogInModal = () => {
     setModalType('logIn');
     dispatch(openModal());
@@ -40,19 +46,10 @@ const Header = ({ BGColor }) => {
     setModalType('logOut');
     dispatch(openModal());
   };
-
-  // const addColection = () => {
-  //   const collectionRef = collection(db, 'nannies');
-
-  //   nan.forEach(async obj => {
-  //     await setDoc(doc(collectionRef, obj.name), obj);
-  //     console.log(obj.name);
-  //   });
-  // };
-
   return (
     <HeaderStyle $BGColor={BGColor}>
       <LogoStyle to="/">Nanny.Services</LogoStyle>
+      <BurgerMenu toggleMenu={toggleMobileMenu} isOpen={isMobileMenuOpen} />
       <Nav>
         <NavListStyle>
           <li>
@@ -91,14 +88,19 @@ const Header = ({ BGColor }) => {
           )}
         </ButtonsContainer>
       )}
-      {/* <ColorBtn type="button" onClick={addColection}>
-        addColection
-      </ColorBtn> */}
+      <BurgerMenuButton type="button" onClick={toggleMobileMenu}>
+        <SpriteSVG name="burger-menu" />
+      </BurgerMenuButton>
       {isModalOpen && modalType && (
         <Modal>
           {modalType === 'logIn' && <LogInForm />}
           {modalType === 'registration' && <RegistrationForm />}
-          {modalType === 'logOut' && <ActionConfirmation />}
+          {modalType === 'logOut' && (
+            <ActionConfirmation
+              text="Are you sure you want to exit?"
+              actionFunc={getOut}
+            />
+          )}
         </Modal>
       )}
     </HeaderStyle>

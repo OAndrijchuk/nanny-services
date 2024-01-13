@@ -4,8 +4,10 @@ export const LogInContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 438px;
-
   background-color: ${({ theme }) => theme.colors.lightText};
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
 `;
 export const LogInTitle = styled.h2`
   margin-bottom: 20px;

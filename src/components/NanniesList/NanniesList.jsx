@@ -1,6 +1,5 @@
 import NannyCard from './NannyCard/NannyCard';
-import { NannyListStyle } from './NanniesList.styled';
-import ColorBtn from '../ColorBtn/ColorBtn';
+import { ColorButton, NannyListStyle } from './NanniesList.styled';
 import { useEffect, useState } from 'react';
 
 const NanniesList = ({ nannies = [] }) => {
@@ -36,13 +35,13 @@ const NanniesList = ({ nannies = [] }) => {
           </NannyListStyle>
 
           {page !== totalPages && nannies.length ? (
-            <ColorBtn
+            <ColorButton
               onClick={() =>
                 setPage(prev => (prev === totalPages ? prev : prev + 1))
               }
             >
               Load more
-            </ColorBtn>
+            </ColorButton>
           ) : null}
         </>
       }

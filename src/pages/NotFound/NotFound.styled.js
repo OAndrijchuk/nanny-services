@@ -5,16 +5,17 @@ export const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: ${({ theme }) => theme.spacing(1)};
+  text-decoration: underline;
+  gap: 24px;
   padding: 5px;
   font-family: Poppins-SemiBold;
-  font-size: 24px;
-  color: ${({ theme }) => theme.colors.navLink};
+  font-size: 34px;
+  color: ${({ theme }) => theme.colors.greyText};
   cursor: pointer;
 
-  transition: all 300ms ease-in-out;
+  transition: all 250ms ease-in-out;
   &:hover {
-    color: ${({ theme }) => theme.colors.colorText};
+    color: ${({ theme }) => theme.colors.lightText};
   }
 `;
 export const StyledThumb = styled.div`
@@ -23,23 +24,23 @@ export const StyledThumb = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing(2)};
+  gap: 24px;
   background: linear-gradient(
     220deg,
-    rgba(109, 84, 235, 0.6) 3.47%,
-    rgba(101, 35, 146, 0.6) 90.06%
+    ${({ theme }) => theme.background.light},
+    ${({ theme }) => theme.background.main}
   );
 `;
 export const StyledTitle = styled.h2`
-  color: ${({ theme }) => theme.colors.navLink};
+  color: ${({ theme }) => theme.colors.darkText};
 `;
 export const StyledTextErr = styled.p`
   font-family: Poppins-Bold;
   font-size: 100px;
-  color: ${({ theme }) => theme.colors.navLink};
+  color: ${({ theme }) => theme.colors.darkText};
 `;
 export const StyledText = styled.p`
   font-family: Poppins-SemiBold;
   font-size: 18px;
-  color: ${({ theme }) => theme.colors.navLink};
+  color: ${({ theme }) => theme.colors.darkText};
 `;

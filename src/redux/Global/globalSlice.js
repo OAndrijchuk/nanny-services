@@ -7,6 +7,7 @@ const initialState = {
   isLoading: false,
   isModalOpen: false,
   isContactModalOpen: false,
+  isMobileMenuOpen: false,
 };
 export const globalSlice = createSlice({
   name: 'global',
@@ -28,6 +29,9 @@ export const globalSlice = createSlice({
     },
     openContactModal: state => {
       state.isContactModalOpen = true;
+    },
+    openMobileMenu: (state, { payload }) => {
+      state.isMobileMenuOpen = payload;
     },
   },
   extraReducers: builder => {
@@ -52,4 +56,5 @@ export const {
   openContactModal,
   setNannies,
   setFilterNannies,
+  openMobileMenu,
 } = globalSlice.actions;

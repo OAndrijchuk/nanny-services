@@ -25,13 +25,20 @@ export const HomeTextContainer = styled.div`
   padding-left: 96px;
   padding-right: 68px;
   margin-top: 88px;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+  @media screen and (max-width: 480px) {
+    padding-left: 40px;
+    padding-right: 68px;
+    gap: 8px;
+  }
 `;
 
 export const HomeTitle = styled.h1`
   font-family: 'HelveticaNeue-500';
-  /* font-size: 70px; */
   font-size: 4.375rem;
-  /* font-size: calc((1vh + 1vw) * 3.2); */
   font-style: normal;
   font-weight: 500;
   line-height: 1; /* 100% */
@@ -39,8 +46,6 @@ export const HomeTitle = styled.h1`
 `;
 export const HomeTitleText = styled.p`
   font-family: 'HelveticaNeue-500';
-  /* font-size: 28px; */
-  /* font-size: calc((1vh + 1vw) * 1.3); */
   font-size: 1.75rem;
   font-style: normal;
   font-weight: 500;
@@ -64,5 +69,9 @@ export const BGImageStyle = styled.div`
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     background-image: url(${BG_2x});
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 `;
