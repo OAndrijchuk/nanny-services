@@ -217,6 +217,23 @@ export const SpriteSVG = ({ name }) => {
           <path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"></path>
         </svg>
       );
+    case 'fe:check':
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          viewBox="0 0 30 30"
+          fill="none"
+        >
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M7.5 12.5L5 15L12.5 22.5L25 10L22.5 7.5L12.5 17.5L7.5 12.5Z"
+            fill="#FBFBFB"
+          />
+        </svg>
+      );
 
     default:
       return 'SVG not found';

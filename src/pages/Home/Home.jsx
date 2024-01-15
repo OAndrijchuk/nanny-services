@@ -8,6 +8,8 @@ import {
   HomeTextContainer,
   HomeTitle,
   HomeTitleText,
+  NanniesCountStyle,
+  TextCountStyle,
 } from './Home.styled';
 
 const Home = () => {
@@ -25,7 +27,17 @@ const Home = () => {
             Get started <SpriteSVG name="arrow" />
           </TransparentBtn>
         </HomeTextContainer>
-        <BGImageStyle />
+        <BGImageStyle>
+          <NanniesCountStyle>
+            <div className="red-container">
+              <SpriteSVG name="fe:check" />
+            </div>
+            <TextCountStyle>
+              <p className="text">Experienced nannies</p>
+              <p className="count">15,000</p>
+            </TextCountStyle>
+          </NanniesCountStyle>
+        </BGImageStyle>
       </HomeContainer>
     </HomeSection>
   );

@@ -55,6 +55,7 @@ export const HomeTitleText = styled.p`
 `;
 
 export const BGImageStyle = styled.div`
+  position: relative;
   background-image: url(${BG});
   background-position: center;
   background-repeat: no-repeat;
@@ -73,5 +74,46 @@ export const BGImageStyle = styled.div`
 
   @media screen and (max-width: 768px) {
     display: none;
+  }
+`;
+export const NanniesCountStyle = styled.div`
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  display: flex;
+  gap: 16px;
+  padding: 32px;
+  border-radius: 20px;
+  background-color: ${({ theme }) => theme.background.white};
+  color: ${({ theme }) => theme.colors.greyText};
+  & .red-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 13px;
+    background-color: ${({ theme }) => theme.background.main};
+    & svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+`;
+
+export const TextCountStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: ${({ theme }) => theme.colors.greyText};
+  & .text {
+    font-family: 'HelveticaNeue-400';
+    font-size: 16px;
+    font-weight: 400;
+  }
+  & .count {
+    font-family: 'HelveticaNeue-500';
+    font-size: 24px;
+    font-weight: 700;
   }
 `;

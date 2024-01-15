@@ -13,6 +13,7 @@ export const HeaderStyle = styled.header`
   border-bottom: 1px solid rgba(251, 251, 251, 0.4);
   background-color: ${props =>
     props.$BGColor ? ({ theme }) => theme.background.main : 'tranparent'};
+  z-index: 1;
 
   @media screen and (max-width: 1124px) {
     padding: 30px 48px;
