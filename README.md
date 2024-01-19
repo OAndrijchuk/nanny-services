@@ -1,8 +1,45 @@
-# React + Vite
+# Nanny.Services
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Car Rental Logo](./public/vite.svg)
 
-Currently, two official plugins are available:
+Nanny.Services - це веб-додаток, розроблений для зручного пошуку та найму нянь.
+Цей додаток адаптований для всіх типів пристроїв і допомагає користувачам знайти
+ідеальну няню для вашої дитини і вас за допомогою різних фільтрів та
+можливостей.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Основні функції
+
+### Сортування
+
+Ви можете відсортувати всі доступні оголошення від нянь за визначиними
+параметрами:
+
+- 'A to Z' - сортування всіх оголошень в алфавітному порядку по імені няні.
+- 'Z to A' - сортування всіх оголошень в зворотньому від алфавітного порядку по
+  імені няні.
+- 'Less than 10$' - сортування всіх оголошень з прайсом за годину менше як 10$
+  за годину.
+- 'Greater than
+  10$' - сортування всіх оголошень з прайсом за годину більше як 10$ за годину.
+- 'Popular' - сортування всіх оголошень за рейтингом няні (від найвищого до
+  найменшого).
+- 'Not popular' - сортування всіх оголошень за рейтингом няні (від найменшого до
+  найвищого).
+- 'Show all' - відображення всіх оголошень без жодних змін.
+
+### Додавання до улюблених
+
+Ми розуміємо, що деякі оголошення можуть бути особливо цікавими для вас. Тому ми
+дозволяємо додавати оголошення про в улюбленні, щоб ви могли легко повертатися
+до них в майбутньому.
+
+## Технології та стек
+
+Nanny.Services розроблено з використанням таких технологій та інструментів:
+
+- Фронтенд: HTML, CSS, JavaScript, Vite.js
+- Використані інші бібліотеки та інструменти: Redux, Firebase,
+  Styled-Components, і багато інших.
+
+Для того, щоб оцінити всі переваги цього сайту, просто перейдіть за посиланням
+[Nanny.Services](https://oandrijchuk.github.io/nanny-services/)
