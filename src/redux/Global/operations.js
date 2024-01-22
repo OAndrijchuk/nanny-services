@@ -6,8 +6,7 @@ import {
   removeFromFavorite,
 } from '../API/nannies';
 import { setFavoritesNannies } from '../auth/authSlice';
-// import { closeModal } from '../Global/globalSlice';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export const getAllNannies = createAsyncThunk(
   'fetch/getAllNannies',
@@ -16,7 +15,7 @@ export const getAllNannies = createAsyncThunk(
       const nannies = await getNannies();
       return nannies;
     } catch (error) {
-      //   toast.error(error.message);
+      toast.error(error.code);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -30,7 +29,7 @@ export const addNannyToFavorites = createAsyncThunk(
       const favorites = await getFavorite(credentials.userId);
       thunkAPI.dispatch(setFavoritesNannies(favorites));
     } catch (error) {
-      //   toast.error(error.message);
+      toast.error(error.code);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -43,7 +42,7 @@ export const removeNannyFromFavorites = createAsyncThunk(
       const favorites = await getFavorite(credentials.userId);
       thunkAPI.dispatch(setFavoritesNannies(favorites));
     } catch (error) {
-      //   toast.error(error.message);
+      toast.error(error.code);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

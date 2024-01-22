@@ -10,6 +10,7 @@ export const ModalOverlay = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.background.modalOverlay};
+  z-index: 999;
   overflow-y: auto;
 `;
 export const ModalContainer = styled.div`

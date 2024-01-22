@@ -7,3 +7,4 @@ export { default as RegistrationForm } from './RegistrationForm/RegistrationForm
 export { default as LogInForm } from './LogInForm/LogInForm.jsx';
 export { default as NanniesList } from './NanniesList/NanniesList.jsx';
 export { default as Filters } from './Filters/Filters.jsx';
+export { default as Loader } from './Loader/Loader.jsx';

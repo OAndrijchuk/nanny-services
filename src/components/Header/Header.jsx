@@ -52,14 +52,14 @@ const Header = ({ BGColor }) => {
       <BurgerMenu toggleMenu={toggleMobileMenu} isOpen={isMobileMenuOpen} />
       <Nav>
         <NavListStyle>
-          <li>
+          <li style={{ position: 'relative' }}>
             <NavLinkStyle to="/">Home</NavLinkStyle>
           </li>
-          <li>
+          <li style={{ position: 'relative' }}>
             <NavLinkStyle to="/nannies">Nannies</NavLinkStyle>
           </li>
           {isAuth && (
-            <li>
+            <li style={{ position: 'relative' }}>
               <NavLinkStyle to="/favorites">Favorites</NavLinkStyle>
             </li>
           )}

@@ -19,6 +19,7 @@ const RegistrationForm = () => {
   const isPasswordShow = () => {
     setShowPassword(prev => !prev);
   };
+
   const formik = useFormik({
     initialValues: {
       name: '',

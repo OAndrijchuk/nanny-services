@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { logOut, signIn, signUp } from '../API/auth';
 import { closeModal } from '../Global/globalSlice';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 export const logIn = createAsyncThunk(
   'fetch/logIn',
@@ -11,7 +11,7 @@ export const logIn = createAsyncThunk(
       thunkAPI.dispatch(closeModal());
       return user;
     } catch (error) {
-      //   toast.error(error.message);
+      toast.error(error.code);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -25,7 +25,7 @@ export const registration = createAsyncThunk(
       thunkAPI.dispatch(closeModal());
       return user;
     } catch (error) {
-      //   toast.error(error.message);
+      toast.error(error.code);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -36,7 +36,7 @@ export const getOut = createAsyncThunk('fetch/logOut', async (_, thunkAPI) => {
     thunkAPI.dispatch(closeModal());
     return {};
   } catch (error) {
-    //   toast.error(error.message);
+    toast.error(error.code);
     return thunkAPI.rejectWithValue(error.message);
   }
 });

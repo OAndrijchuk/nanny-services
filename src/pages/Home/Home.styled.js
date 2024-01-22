@@ -25,13 +25,15 @@ export const HomeTextContainer = styled.div`
   padding-left: 96px;
   padding-right: 68px;
   margin-top: 88px;
+  padding-bottom: 20px;
 
   @media screen and (max-width: 768px) {
     width: 100%;
   }
+
   @media screen and (max-width: 480px) {
-    padding-left: 40px;
-    padding-right: 68px;
+    padding-left: 35px;
+    padding-right: 35px;
     gap: 8px;
   }
 `;
@@ -43,6 +45,9 @@ export const HomeTitle = styled.h1`
   font-weight: 500;
   line-height: 1; /* 100% */
   letter-spacing: -2.1px;
+  @media screen and (max-width: 768px) {
+    font-size: 4rem;
+  }
 `;
 export const HomeTitleText = styled.p`
   font-family: 'HelveticaNeue-500';
@@ -52,6 +57,10 @@ export const HomeTitleText = styled.p`
   line-height: 1.07; /* 100% */
   letter-spacing: -0.56px;
   margin-bottom: 28px;
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    margin-bottom: 0;
+  }
 `;
 
 export const BGImageStyle = styled.div`

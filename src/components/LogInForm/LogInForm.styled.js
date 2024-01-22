@@ -22,10 +22,10 @@ export const LogInTitle = styled.h2`
 
 export const LogInText = styled.p`
   margin-bottom: 40px;
-  font-family: 'HelveticaNeue-400';
+  font-family: 'HelveticaNeue-500';
   font-size: 16px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.25; /* 120% */
 `;
 export const Form = styled.form`

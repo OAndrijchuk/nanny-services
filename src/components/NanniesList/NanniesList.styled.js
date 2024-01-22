@@ -4,6 +4,7 @@ export const NannyListStyle = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 32px;
+  margin-bottom: 64px;
 `;
 export const ColorButton = styled.button`
   display: block;

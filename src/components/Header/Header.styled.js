@@ -46,6 +46,20 @@ export const NavLinkStyle = styled(NavLink)`
   &:hover {
     color: ${({ theme }) => theme.colors.greyText};
   }
+  &.active {
+    &::after {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      background-color: ${({ theme }) => theme.colors.lightText};
+      border-radius: 100%;
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
 `;
 export const LogoStyle = styled(NavLink)`
   color: ${({ theme }) => theme.colors.lightText};
