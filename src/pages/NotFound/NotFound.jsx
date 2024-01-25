@@ -17,12 +17,7 @@ const NotFound = () => {
       </StyledText>
       <StyledText>
         Maybe what you are looking for can be found at
-        {
-          <StyledLink to="/">
-            Home
-            {/* <BiHomeAlt2 /> */}
-          </StyledLink>
-        }
+        {<StyledLink to="/">Home</StyledLink>}
       </StyledText>
     </StyledThumb>
   );
